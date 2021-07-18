@@ -1,7 +1,7 @@
 version: "3"
 services:
   https:
-    image: caddy:2.4.3-alpine
+    image: caddy:2.4.3-alpine@sha256:0f792d7cd96708d297fd55304917c1cad5e71b9317e68f167204d9d9e0f44657
     restart: unless-stopped
     ports:
       - "80:80"
@@ -12,7 +12,7 @@ services:
       - caddy_config:/config
       - minicharge_tmp:/tmp/minicharge
   minicharge:
-    image: miniflux/miniflux:2.0.31
+    image: miniflux/miniflux:2.0.31@sha256:63dea50e3dbb472e60f6fff59726867f588f61b246a93141b050b5041eed422f
     restart: unless-stopped
     environment:
       LISTEN_ADDR: /tmp/miniflux.sock
@@ -24,7 +24,7 @@ services:
       db:
         condition: service_healthy
   db:
-    image: postgres:13.3-alpine
+    image: postgres:13.3-alpine@sha256:ff384947eb9f5939b7fc5ef2ce620fad088999590973f05e6812037d163c770e
     restart: unless-stopped
     healthcheck:
       test: pg_isready
