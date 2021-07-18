@@ -17,7 +17,6 @@ sudo tee /etc/docker/daemon.json < etc/docker/daemon.json
 ## 構築
 
 ```sh
-echo POSTGRES_PASSWORD=$(python3 -c 'import secrets; print(secrets.token_urlsafe())') >> .env
-chmod 600 .env
+install -m 600 <(echo POSTGRES_PASSWORD=$(python3 -c 'import secrets; print(secrets.token_urlsafe())')) .env
 docker-compose up -d
 ```
