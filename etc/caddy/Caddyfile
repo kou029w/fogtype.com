@@ -1,5 +1,5 @@
 keiu.net {
-	respond "WIP"
+	file_server
 }
 www.keiu.net {
 	redir https://keiu.net{uri} 308

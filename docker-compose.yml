@@ -8,6 +8,7 @@ services:
       - "443:443"
     volumes:
       - ./etc/caddy:/etc/caddy
+      - ./srv:/srv
       - caddy_data:/data
       - caddy_config:/config
       - minicharge_tmp:/tmp/minicharge
