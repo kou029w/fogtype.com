@@ -1,0 +1,9 @@
+keiu.net {
+	respond "WIP"
+}
+www.keiu.net {
+	redir https://keiu.net{uri} 308
+}
+minicharge.keiu.net {
+	reverse_proxy unix//tmp/minicharge/miniflux.sock
+}

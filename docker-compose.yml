@@ -1,0 +1,42 @@
+version: "3"
+services:
+  https:
+    image: caddy:2.4.3-alpine
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./etc/caddy:/etc/caddy
+      - caddy_data:/data
+      - caddy_config:/config
+      - minicharge_tmp:/tmp/minicharge
+  minicharge:
+    image: miniflux/miniflux:2.0.31
+    restart: unless-stopped
+    environment:
+      LISTEN_ADDR: /tmp/miniflux.sock
+      DATABASE_URL: postgresql://postgres:${POSTGRES_PASSWORD}@/postgres?host=/tmp/postgresql
+    volumes:
+      - minicharge_tmp:/tmp
+      - postgres_tmp:/tmp/postgresql
+    depends_on:
+      db:
+        condition: service_healthy
+  db:
+    image: postgres:13.3-alpine
+    restart: unless-stopped
+    healthcheck:
+      test: pg_isready
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - ./etc/postgres/initdb.d:/docker-entrypoint-initdb.d
+      - postgres_tmp:/var/run/postgresql
+      - postgres_data:/var/lib/postgresql/data
+volumes:
+  caddy_data:
+  caddy_config:
+  minicharge_tmp:
+  postgres_tmp:
+  postgres_data:

@@ -1,0 +1,10 @@
+{
+  "extends": [
+    "config:base",
+    ":automergeAll",
+    ":automergeBranch",
+    ":skipStatusChecks",
+    "docker:enableMajor",
+    "docker:pinDigests"
+  ]
+}
