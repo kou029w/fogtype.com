@@ -13,7 +13,7 @@ services:
       - caddy_config:/config
       - minicharge_tmp:/tmp/minicharge
   minicharge:
-    image: miniflux/miniflux:2.0.31@sha256:63dea50e3dbb472e60f6fff59726867f588f61b246a93141b050b5041eed422f
+    image: miniflux/miniflux:2.0.32@sha256:1da85593b4a68267d0e15009114351868f1cb749192c4689990855051c90a152
     restart: unless-stopped
     environment:
       LISTEN_ADDR: /tmp/miniflux.sock
