@@ -41,8 +41,9 @@ services:
     expose: ["443"]
     ports: ["853:853"]
     volumes:
-      - ./etc/coredns/Corefile:/Corefile
+      - ./etc/coredns:/etc/coredns
       - caddy_data:/var/lib/caddy/data
+    command: "-conf /etc/coredns/Corefile"
 volumes:
   caddy_data:
   caddy_config:

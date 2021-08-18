@@ -1,4 +1,5 @@
 https://. tls://. {
 	tls /var/lib/caddy/data/caddy/certificates/acme-v02.api.letsencrypt.org-directory/dns.keiu.net/dns.keiu.net.crt /var/lib/caddy/data/caddy/certificates/acme-v02.api.letsencrypt.org-directory/dns.keiu.net/dns.keiu.net.key
 	forward . /etc/resolv.conf
+	reload
 }
