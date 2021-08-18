@@ -33,7 +33,6 @@ services:
     environment:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
-      - ./etc/postgres/initdb.d:/docker-entrypoint-initdb.d
       - postgres_tmp:/var/run/postgresql
       - postgres_data:/var/lib/postgresql/data
 volumes:
