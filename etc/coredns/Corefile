@@ -1,3 +1,8 @@
+https://dns.keiu.net tls://dns.keiu.net {
+	forward . tls://1.1.1.1 tls://1.0.0.1 {
+		tls_servername tls.cloudflare-dns.com
+	}
+}
 https://. tls://. {
 	tls /var/lib/caddy/data/caddy/certificates/acme-v02.api.letsencrypt.org-directory/dns.keiu.net/dns.keiu.net.crt /var/lib/caddy/data/caddy/certificates/acme-v02.api.letsencrypt.org-directory/dns.keiu.net/dns.keiu.net.key
 	forward . /etc/resolv.conf
