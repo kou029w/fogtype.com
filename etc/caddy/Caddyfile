@@ -7,3 +7,6 @@ www.keiu.net {
 minicharge.keiu.net {
 	reverse_proxy unix//tmp/minicharge/miniflux.sock
 }
+dns.keiu.net {
+	reverse_proxy https://dns.keiu.net
+}

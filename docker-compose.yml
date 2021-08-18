@@ -35,6 +35,13 @@ services:
     volumes:
       - postgres_tmp:/var/run/postgresql
       - postgres_data:/var/lib/postgresql/data
+  dns.keiu.net:
+    image: coredns/coredns:1.8.4
+    restart: unless-stopped
+    expose: ["443"]
+    volumes:
+      - ./etc/coredns/Corefile:/Corefile
+      - caddy_data:/var/lib/caddy/data
 volumes:
   caddy_data:
   caddy_config:
