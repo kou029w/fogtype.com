@@ -1,7 +1,7 @@
 version: "3"
 services:
   https:
-    image: caddy:2.4.3-alpine@sha256:f00d2e7e82418a30135cbe5c1455df6c617ee651d6f430183a8e49e3b2608359
+    image: caddy:2.4.3-alpine@sha256:f4719333d533cf613b0c46db8fe1cecb948d971e33b8c65c489a8ae6de5140c1
     restart: unless-stopped
     ports:
       - "80:80"
