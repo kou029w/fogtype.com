@@ -4,7 +4,7 @@ https://dns.keiu.net tls://dns.keiu.net {
 	}
 }
 https://. tls://. {
-	tls /var/lib/caddy/data/caddy/certificates/acme-v02.api.letsencrypt.org-directory/dns.keiu.net/dns.keiu.net.crt /var/lib/caddy/data/caddy/certificates/acme-v02.api.letsencrypt.org-directory/dns.keiu.net/dns.keiu.net.key
+	tls /var/lib/caddy/data/caddy/certificates/acme.zerossl.com-v2-dv90/dns.keiu.net/dns.keiu.net.crt /var/lib/caddy/data/caddy/certificates/acme.zerossl.com-v2-dv90/dns.keiu.net/dns.keiu.net.key
 	hosts {
 		fallthrough
 	}
