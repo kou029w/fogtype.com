@@ -34,7 +34,7 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
       - postgres_tmp:/var/run/postgresql
-      - postgres_data:/var/lib/postgresql/data
+      - postgres_data_v14:/var/lib/postgresql/data
   dns.keiu.net:
     image: coredns/coredns:1.8.5@sha256:43a9f52f5dce39bf1816afe6141724cc2d08811e466dd46e6628c925e2419bdc
     restart: unless-stopped
@@ -49,4 +49,4 @@ volumes:
   caddy_config:
   minicharge_tmp:
   postgres_tmp:
-  postgres_data:
+  postgres_data_v14:
