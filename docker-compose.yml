@@ -36,7 +36,7 @@ services:
       - postgres_tmp:/var/run/postgresql
       - postgres_data_v14:/var/lib/postgresql/data
   dns.keiu.net:
-    image: coredns/coredns:1.9.0@sha256:0f101fabf4b63883d4529435f75b1e8816dcc8915e8fa7d28aa6e50a15e9ea6a
+    image: coredns/coredns:1.9.1@sha256:d5a7db9ab4cb3efc22a08707385c54c328db3df32841d6c4a8ae78f102f1f49a
     restart: unless-stopped
     expose: ["443"]
     ports: ["853:853"]
