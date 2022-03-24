@@ -26,7 +26,7 @@ services:
       db:
         condition: service_healthy
   db:
-    image: postgres:14.2-alpine@sha256:ac385d91f46a17b4160607337b82c89e1cbba96734152d27adcbc8bcd10f76a5
+    image: postgres:14.2-alpine@sha256:7a3fbfc8461b38cbc19550165103a2e2f80f14d6cdd17b16b0b994b645544672
     restart: unless-stopped
     healthcheck:
       test: pg_isready -U postgres
