@@ -32,6 +32,8 @@ services:
       test: pg_isready -U postgres
     environment:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "127.0.0.1:5432:5432"
     volumes:
       - postgres_tmp:/var/run/postgresql
       - postgres_data_v14:/var/lib/postgresql/data
