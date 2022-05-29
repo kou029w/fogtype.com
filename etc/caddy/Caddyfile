@@ -1,4 +1,5 @@
 {
+	admin 0.0.0.0:2019
 	acme_ca https://acme.zerossl.com/v2/DV90
 	email kou029w@gmail.com
 }

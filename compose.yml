@@ -5,7 +5,7 @@ services:
     ports:
       - "80:80"
       - "443:443"
-      - "2019:2019"
+      - "127.0.0.1:2019:2019"
     volumes:
       - ./etc/caddy:/etc/caddy
       - ./srv:/srv
