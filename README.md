@@ -20,5 +20,5 @@ install -m 600 <(echo POSTGRES_PASSWORD=$(python3 -c 'import secrets; print(secr
 ## 構築
 
 ```sh
-docker-compose up -d
+docker compose up -d
 ```
