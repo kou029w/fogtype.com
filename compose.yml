@@ -39,7 +39,9 @@ services:
     image: coredns/coredns:1.9.3@sha256:8e352a029d304ca7431c6507b56800636c321cb52289686a581ab70aaa8a2e2a
     restart: unless-stopped
     expose: ["443"]
-    ports: ["853:853"]
+    ports:
+      - "853:853"
+      - "127.0.0.1:9153:9153"
     volumes:
       - ./etc/coredns:/etc/coredns
       - caddy_data:/var/lib/caddy/data
