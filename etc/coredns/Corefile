@@ -1,4 +1,5 @@
 https://dns.keiu.net tls://dns.keiu.net {
+	prometheus 0.0.0.0:9153
 	forward . tls://1.1.1.1 tls://1.0.0.1 {
 		tls_servername tls.cloudflare-dns.com
 	}
@@ -10,7 +11,4 @@ https://. tls://. {
 	}
 	forward . /etc/resolv.conf
 	reload
-}
-. {
-	prometheus 0.0.0.0:9153
 }
