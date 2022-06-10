@@ -1,14 +1,11 @@
-https://dns.keiu.net tls://dns.keiu.net {
-	prometheus 0.0.0.0:9153
-	forward . tls://1.1.1.1 tls://1.0.0.1 {
-		tls_servername tls.cloudflare-dns.com
-	}
-}
 https://. tls://. {
 	tls /var/lib/caddy/data/caddy/certificates/acme.zerossl.com-v2-dv90/dns.keiu.net/dns.keiu.net.crt /var/lib/caddy/data/caddy/certificates/acme.zerossl.com-v2-dv90/dns.keiu.net/dns.keiu.net.key
+	reload
+	prometheus 0.0.0.0:9153
 	hosts {
 		fallthrough
 	}
-	forward . /etc/resolv.conf
-	reload
+	forward . tls://1.1.1.1 tls://1.0.0.1 {
+		tls_servername tls.cloudflare-dns.com
+	}
 }
