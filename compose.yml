@@ -17,24 +17,10 @@ services:
     restart: unless-stopped
     environment:
       LISTEN_ADDR: /tmp/miniflux.sock
-      DATABASE_URL: postgresql://postgres:${POSTGRES_PASSWORD}@/postgres?host=/tmp/postgresql
+      DATABASE_URL: ${DATABASE_URL}
       RUN_MIGRATIONS: "1"
     volumes:
       - minicharge_tmp:/tmp
-      - postgres_tmp:/tmp/postgresql
-    depends_on:
-      db:
-        condition: service_healthy
-  db:
-    image: postgres:14.3-alpine@sha256:5973fec8d8284c8961ac3c23945e52d533dd0d21cc7b3c7dd7a46fd199bed4a4
-    restart: unless-stopped
-    healthcheck:
-      test: pg_isready -U postgres
-    environment:
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-    volumes:
-      - postgres_tmp:/var/run/postgresql
-      - postgres_data_v14:/var/lib/postgresql/data
   dns.keiu.net:
     image: coredns/coredns:1.9.3@sha256:8e352a029d304ca7431c6507b56800636c321cb52289686a581ab70aaa8a2e2a
     restart: unless-stopped
@@ -52,5 +38,3 @@ volumes:
   caddy_data:
   caddy_config:
   minicharge_tmp:
-  postgres_tmp:
-  postgres_data_v14:
