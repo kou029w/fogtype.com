@@ -11,16 +11,6 @@ services:
       - ./srv:/srv
       - caddy_data:/data
       - caddy_config:/config
-      - minicharge_tmp:/tmp/minicharge
-  minicharge:
-    image: miniflux/miniflux:2.0.37@sha256:0a768ab76a1e8e0f03b1a29d9a8424eb60af71af937da35677e87d5a4ef65bf6
-    restart: unless-stopped
-    environment:
-      LISTEN_ADDR: /tmp/miniflux.sock
-      DATABASE_URL: ${DATABASE_URL}
-      RUN_MIGRATIONS: "1"
-    volumes:
-      - minicharge_tmp:/tmp
   dns.keiu.net:
     image: coredns/coredns:1.9.3@sha256:8e352a029d304ca7431c6507b56800636c321cb52289686a581ab70aaa8a2e2a
     restart: unless-stopped
@@ -37,4 +27,3 @@ services:
 volumes:
   caddy_data:
   caddy_config:
-  minicharge_tmp:

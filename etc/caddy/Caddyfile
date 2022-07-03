@@ -10,7 +10,7 @@ www.keiu.net {
 	redir https://keiu.net{uri} 308
 }
 minicharge.keiu.net {
-	reverse_proxy unix//tmp/minicharge/miniflux.sock
+	redir https://minicharge.fly.dev permanent
 }
 dns.keiu.net {
 	reverse_proxy https://dns.keiu.net
