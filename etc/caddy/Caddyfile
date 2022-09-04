@@ -5,10 +5,12 @@
 }
 keiu.net {
 	file_server
+	reverse_proxy /dns-query https://dns {
+		transport http {
+			tls_server_name keiu.net
+		}
+	}
 }
 www.keiu.net {
 	redir https://keiu.net{uri} 308
-}
-dns.keiu.net {
-	reverse_proxy https://dns.keiu.net
 }

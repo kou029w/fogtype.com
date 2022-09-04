@@ -11,7 +11,7 @@ services:
       - ./srv:/srv
       - caddy_data:/data
       - caddy_config:/config
-  dns.keiu.net:
+  dns:
     image: coredns/coredns:1.9.3@sha256:8e352a029d304ca7431c6507b56800636c321cb52289686a581ab70aaa8a2e2a
     restart: unless-stopped
     expose: ["443"]

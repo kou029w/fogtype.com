@@ -1,5 +1,5 @@
 https://. tls://. . {
-	tls /var/lib/caddy/data/caddy/certificates/acme.zerossl.com-v2-dv90/dns.keiu.net/dns.keiu.net.crt /var/lib/caddy/data/caddy/certificates/acme.zerossl.com-v2-dv90/dns.keiu.net/dns.keiu.net.key
+	tls /var/lib/caddy/data/caddy/certificates/acme.zerossl.com-v2-dv90/keiu.net/keiu.net.crt /var/lib/caddy/data/caddy/certificates/acme.zerossl.com-v2-dv90/keiu.net/keiu.net.key
 	reload
 	prometheus 0.0.0.0:9153
 	hosts {
