@@ -9,9 +9,6 @@ keiu.net {
 www.keiu.net {
 	redir https://keiu.net{uri} 308
 }
-minicharge.keiu.net {
-	redir https://minicharge.fly.dev permanent
-}
 dns.keiu.net {
 	reverse_proxy https://dns.keiu.net
 }
