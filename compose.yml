@@ -12,7 +12,7 @@ services:
       - caddy_data:/data
       - caddy_config:/config
   dns:
-    image: coredns/coredns:1.9.3@sha256:8e352a029d304ca7431c6507b56800636c321cb52289686a581ab70aaa8a2e2a
+    image: coredns/coredns:1.9.4@sha256:b82e294de6be763f73ae71266c8f5466e7e03c69f3a1de96efd570284d35bb18
     restart: unless-stopped
     expose: ["443"]
     ports:
