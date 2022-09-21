@@ -4,7 +4,8 @@ services:
     restart: unless-stopped
     ports:
       - "80:80"
-      - "443:443"
+      - "443:443/udp"
+      - "443:443/tcp"
       - "127.0.0.1:2019:2019"
     volumes:
       - ./etc/caddy:/etc/caddy
