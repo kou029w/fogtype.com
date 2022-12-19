@@ -31,7 +31,7 @@ services:
     networks:
       - keiu
   gts:
-    image: superseriousbusiness/gotosocial:0.6.0
+    image: superseriousbusiness/gotosocial:0.6.0@sha256:c3dbefe684529c7f97eb7d221f64bd9d14bd9c94e6543e6a8afe5a3469a9d77e
     restart: unless-stopped
     expose: ["8080"]
     environment:
