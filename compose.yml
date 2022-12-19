@@ -12,6 +12,9 @@ services:
       - ./srv:/srv
       - caddy_data:/data
       - caddy_config:/config
+    networks:
+      - keiu
+      - fogtype
   dns:
     image: coredns/coredns:1.10.0@sha256:017727efcfeb7d053af68e51436ce8e65edbc6ca573720afb4f79c8594036955
     restart: unless-stopped
@@ -25,6 +28,29 @@ services:
       - ./etc/coredns:/etc/coredns
       - caddy_data:/var/lib/caddy/data
     command: "-conf /etc/coredns/Corefile"
+    networks:
+      - keiu
+  gts:
+    image: superseriousbusiness/gotosocial:0.6.0
+    restart: unless-stopped
+    expose: ["8080"]
+    environment:
+      GTS_HOST: fogtype.com
+      GTS_TRUSTED_PROXIES: 172.30.0.0/24
+    volumes:
+      - ./etc/gotosocial:/etc/gotosocial
+      - gotosocial_data:/gotosocial/storage
+    command: "--config-path /etc/gotosocial/config.yaml"
+    networks:
+      - fogtype
 volumes:
   caddy_data:
   caddy_config:
+  gotosocial_data:
+networks:
+  keiu:
+  fogtype:
+    ipam:
+     driver: default
+     config:
+       - subnet: 172.30.0.0/24
