@@ -39,7 +39,7 @@ services:
       GTS_TRUSTED_PROXIES: 172.30.0.0/24
     volumes:
       - ./etc/gotosocial:/etc/gotosocial
-      - gotosocial_data:/gotosocial/storage
+      - gotosocial_data:/gotosocial
     command: "--config-path /etc/gotosocial/config.yaml"
     networks:
       - fogtype
