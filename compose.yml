@@ -38,6 +38,7 @@ services:
       GTS_HOST: fogtype.com
       GTS_TRUSTED_PROXIES: 172.30.0.0/24
     volumes:
+      - /usr/share/zoneinfo/Asia/Tokyo:/etc/localtime:ro
       - ./etc/gotosocial:/etc/gotosocial
       - gotosocial_data:/gotosocial
     command: "--config-path /etc/gotosocial/config.yaml"
