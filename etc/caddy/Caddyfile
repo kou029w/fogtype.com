@@ -2,7 +2,7 @@ keiu.net, www.keiu.net {
 	redir https://fogtype.com{uri} 308
 }
 read.keiu.net {
-	redir https://radiation.fogtype.com{uri} 308
+	redir https://rad.fogtype.com{uri} 308
 }
 fogtype.com {
 	reverse_proxy http://gts:8080
