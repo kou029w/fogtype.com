@@ -1,4 +1,4 @@
-# ほんの少し降る雨
+# Fogtype
 
 ## 前提
 
@@ -9,9 +9,9 @@
 Git リポジトリを取得し、設定ファイルを配置
 
 ```bash
-ssh kou029w@keiu.net
-git clone git@github.com:kou029w/keiu.net.git
-cd keiu.net
+ssh kou029w@fogtype.com
+git clone git@github.com:kou029w/fogtype.com.git
+cd fogtype.com
 sudo install -m 644 {,/}etc/docker/daemon.json
 sudo systemctl restart docker
 ```

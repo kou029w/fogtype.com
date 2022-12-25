@@ -13,7 +13,6 @@ services:
       - caddy_data:/data
       - caddy_config:/config
     networks:
-      - keiu
       - fogtype
   dns:
     image: coredns/coredns:1.10.0@sha256:017727efcfeb7d053af68e51436ce8e65edbc6ca573720afb4f79c8594036955
@@ -29,7 +28,7 @@ services:
       - caddy_data:/var/lib/caddy/data
     command: "-conf /etc/coredns/Corefile"
     networks:
-      - keiu
+      - fogtype
   gts:
     image: superseriousbusiness/gotosocial:0.6.0@sha256:c3dbefe684529c7f97eb7d221f64bd9d14bd9c94e6543e6a8afe5a3469a9d77e
     restart: unless-stopped
@@ -49,7 +48,6 @@ volumes:
   caddy_config:
   gotosocial_data:
 networks:
-  keiu:
   fogtype:
     ipam:
      driver: default

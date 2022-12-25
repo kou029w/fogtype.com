@@ -1,17 +1,16 @@
-keiu.net {
-	file_server
-	reverse_proxy /dns-query https://dns {
-		transport http {
-			tls_server_name keiu.net
-		}
-	}
-}
-www.keiu.net {
-	redir https://keiu.net{uri} 308
+keiu.net, www.keiu.net {
+	redir https://fogtype.com{uri} 308
 }
 fogtype.com {
 	reverse_proxy http://gts:8080
 }
 www.fogtype.com {
 	redir https://fogtype.com{uri} 308
+}
+dns.fogtype.com {
+	reverse_proxy /dns-query https://dns {
+		transport http {
+			tls_server_name dns.fogtype.com
+		}
+	}
 }
