@@ -9,6 +9,3 @@ https://. tls://. . {
 		tls_servername tls.cloudflare-dns.com
 	}
 }
-beta.fogtype.com. {
-	whoami
-}
