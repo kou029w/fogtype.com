@@ -1,2 +1,3 @@
 db-type: sqlite
 db-address: sqlite.db
+accounts-registration-open: false
