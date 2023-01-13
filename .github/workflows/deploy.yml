@@ -8,4 +8,4 @@ jobs:
     steps:
       - run: install -m 700 -d ~/.ssh
       - run: install -m 600 <(echo '${{ secrets.DEPLOY_KEY }}') ~/.ssh/deploy_key
-      - run: ssh -i ~/.ssh/deploy_key -o 'StrictHostKeyChecking no' kou029w@fogtype.com 'sh -c "cd ~/keiu.net && git pull --rebase && docker compose up --detach --remove-orphans"'
+      - run: ssh -i ~/.ssh/deploy_key -o 'StrictHostKeyChecking no' kou029w@fogtype.com 'sh -c "cd ~/fogtype.com && git pull --rebase && docker compose --project-name=keiunet up --detach --remove-orphans"'
