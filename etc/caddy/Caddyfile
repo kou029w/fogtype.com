@@ -6,7 +6,9 @@ read.keiu.net {
 }
 fogtype.com {
 	reverse_proxy http://gts:8080
-	reverse_proxy /.well-known/nostr.json https://archive.fogtype.com
+	reverse_proxy /.well-known/nostr.json https://archive.fogtype.com {
+		header_up Host {upstream_hostport}
+	}
 }
 www.fogtype.com {
 	redir https://fogtype.com{uri} 308
