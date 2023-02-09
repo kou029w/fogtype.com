@@ -1,0 +1,10 @@
+{
+  "names": {
+    "nebel": "c90a759ab3bc4006f1fe5684a1a0278b41e868580932ad67760f3e52db6112d0"
+  },
+  "relays": {
+    "c90a759ab3bc4006f1fe5684a1a0278b41e868580932ad67760f3e52db6112d0": [
+      "wss://relay.beta.fogtype.com"
+    ]
+  }
+}

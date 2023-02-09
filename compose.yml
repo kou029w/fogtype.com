@@ -9,6 +9,7 @@ services:
       - "127.0.0.1:2019:2019"
     volumes:
       - ./etc/caddy:/etc/caddy
+      - ./srv:/srv
       - caddy_data:/data
       - caddy_config:/config
     networks:
@@ -49,6 +50,6 @@ volumes:
 networks:
   fogtype:
     ipam:
-     driver: default
-     config:
-       - subnet: 172.30.0.0/24
+      driver: default
+      config:
+        - subnet: 172.30.0.0/24
