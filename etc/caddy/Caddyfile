@@ -21,3 +21,9 @@ dns.fogtype.com {
 		}
 	}
 }
+task.fogtype.com {
+	reverse_proxy /.well-known/* vikunja-api:3456
+	reverse_proxy /api/* vikunja-api:3456
+	reverse_proxy /dav/* vikunja-api:3456
+	reverse_proxy vikunja-frontend:80
+}

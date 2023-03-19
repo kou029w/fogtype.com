@@ -45,10 +45,28 @@ services:
     command: "--config-path /etc/gotosocial/config.yaml"
     networks:
       - fogtype
+  vikunja-api:
+    image: vikunja/api:0.20.4
+    restart: unless-stopped
+    environment:
+      VIKUNJA_SERVICE_FRONTENDURL: https://task.fogtype.com/
+      VIKUNJA_SERVICE_ENABLEREGISTRATION: "false"
+      VIKUNJA_DATABASE_TYPE: sqlite
+      VIKUNJA_DATABASE_PATH: files/vikunja.db
+    volumes:
+      - "vikunja_data:/app/vikunja/files"
+    networks:
+      - fogtype
+  vikunja-frontend:
+    image: vikunja/frontend:0.20.5
+    restart: unless-stopped
+    networks:
+      - fogtype
 volumes:
   caddy_data:
   caddy_config:
   gotosocial_data:
+  vikunja_data:
 networks:
   fogtype:
     ipam:
