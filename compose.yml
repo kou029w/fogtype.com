@@ -46,7 +46,7 @@ services:
     networks:
       - fogtype
   vikunja-api:
-    image: vikunja/api:0.20.4
+    image: vikunja/api:0.20.4@sha256:0f8e00f99120ac677de0764b054e4402f7046077004ff5e26f9146adfaf8b0af
     restart: unless-stopped
     environment:
       VIKUNJA_SERVICE_FRONTENDURL: https://task.fogtype.com/
@@ -58,7 +58,7 @@ services:
     networks:
       - fogtype
   vikunja-frontend:
-    image: vikunja/frontend:0.20.5
+    image: vikunja/frontend:0.20.5@sha256:5aad76d28c5dd8f5f5f4e6d5ba3459138676d37e5f79747f53ce64a52ba78b56
     restart: unless-stopped
     networks:
       - fogtype
