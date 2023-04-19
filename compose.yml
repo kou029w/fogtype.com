@@ -69,7 +69,6 @@ services:
     image: r.xmox.nl/mox:latest@sha256:67a7619cea5bb6150d02a9c662a50266550d6d5f80c681e30f8f998e1deee52b
     restart: on-failure
     network_mode: host
-    user: "1000:1000"
     environment:
       MOX_DOCKER: "yes"
     volumes:
