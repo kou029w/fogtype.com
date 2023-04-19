@@ -14,6 +14,8 @@ services:
       - caddy_config:/config
     networks:
       - fogtype
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
   dns:
     image: coredns/coredns:1.10.1@sha256:a0ead06651cf580044aeb0a0feba63591858fb2e43ade8c9dea45a6a89ae7e5e
     restart: unless-stopped
@@ -62,11 +64,35 @@ services:
     restart: unless-stopped
     networks:
       - fogtype
+  mox:
+    image: r.xmox.nl/mox:latest
+    restart: on-failure
+    network_mode: host
+    user: "1000:1000"
+    environment:
+      MOX_DOCKER: "yes"
+    volumes:
+      - caddy_data:/var/lib/caddy/data:ro
+      - mox_data:/mox/data
+      - mox_config:/mox/config
+      - type: bind
+        source: ./etc/mox/config/mox.conf
+        target: /mox/config/mox.conf
+      - type: bind
+        source: ./etc/mox/config/domains.conf
+        target: /mox/config/domains.conf
+    healthcheck:
+      test: "netstat -nlt | grep ':25 '"
+      interval: "1s"
+      timeout: "1s"
+      retries: 10
 volumes:
   caddy_data:
   caddy_config:
   gotosocial_data:
   vikunja_data:
+  mox_data:
+  mox_config:
 networks:
   fogtype:
     ipam:
