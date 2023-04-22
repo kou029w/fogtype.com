@@ -66,7 +66,7 @@ services:
     networks:
       - fogtype
   mox:
-    image: r.xmox.nl/mox:latest@sha256:12f8a485d8a19cb31625da84d685897acf49568241d350fc6a0dc5e68dbc3cab
+    image: r.xmox.nl/mox:v0.0.3-go1.20.3-alpine3.17.3@sha256:12f8a485d8a19cb31625da84d685897acf49568241d350fc6a0dc5e68dbc3cab
     restart: on-failure
     network_mode: host
     environment:
