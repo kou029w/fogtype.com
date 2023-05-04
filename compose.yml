@@ -76,6 +76,7 @@ services:
       MADDY_HOSTNAME: fogtype.com
       MADDY_DOMAIN: fogtype.com
     volumes:
+      - ./etc/maddy:/etc/maddy
       - caddy_data:/var/lib/caddy/data:ro
       - maddy_data:/data
 volumes:
