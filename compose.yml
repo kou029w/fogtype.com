@@ -78,7 +78,7 @@ services:
       - caddy_data:/var/lib/caddy/data:ro
       - maddy_data:/data
   headscale:
-    image: headscale/headscale:0.22.1
+    image: headscale/headscale:0.22.1@sha256:3f8d140e6c6cf523ecae264ae05d11ce45aaca7f19ff6e669c1287e18ef0ffe5
     restart: unless-stopped
     ports:
       - "127.0.0.1:9200:9200"
