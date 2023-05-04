@@ -9,7 +9,6 @@ fogtype.com {
 		header access-control-allow-origin *
 		file_server
 	}
-	reverse_proxy /.well-known/mta-sts.txt host.docker.internal:8081
 	reverse_proxy http://gts:8080
 }
 www.fogtype.com {
@@ -21,6 +20,12 @@ dns.fogtype.com {
 			tls_server_name dns.fogtype.com
 		}
 	}
+}
+mta-sts.fogtype.com {
+	handle /.well-known/mta-sts.txt {
+		file_server
+	}
+	redir / /.well-known/mta-sts.txt
 }
 task.fogtype.com {
 	reverse_proxy /.well-known/* vikunja-api:3456
