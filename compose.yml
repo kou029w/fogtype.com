@@ -77,12 +77,24 @@ services:
       - ./etc/maddy:/etc/maddy
       - caddy_data:/var/lib/caddy/data:ro
       - maddy_data:/data
+  headscale:
+    image: headscale/headscale:0.22.1
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:9200:9200"
+    volumes:
+      - ./etc/headscale:/etc/headscale
+      - headscale_data:/var/lib/headscale
+    networks:
+      - fogtype
+    command: headscale serve
 volumes:
   caddy_data:
   caddy_config:
   gotosocial_data:
   vikunja_data:
   maddy_data:
+  headscale_data:
 networks:
   fogtype:
     ipam:
