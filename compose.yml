@@ -65,34 +65,25 @@ services:
     restart: unless-stopped
     networks:
       - fogtype
-  mox:
-    image: r.xmox.nl/mox:v0.0.3-go1.20.3-alpine3.17.3@sha256:12f8a485d8a19cb31625da84d685897acf49568241d350fc6a0dc5e68dbc3cab
-    restart: on-failure
-    network_mode: host
+  maddy:
+    image: foxcpp/maddy:0.6.3
+    restart: unless-stopped
+    ports:
+      - "25:25"
+      - "465:465"
+      - "993:993"
     environment:
-      MOX_DOCKER: "yes"
+      MADDY_HOSTNAME: fogtype.com
+      MADDY_DOMAIN: fogtype.com
     volumes:
       - caddy_data:/var/lib/caddy/data:ro
-      - mox_data:/mox/data
-      - mox_config:/mox/config
-      - type: bind
-        source: ./etc/mox/config/mox.conf
-        target: /mox/config/mox.conf
-      - type: bind
-        source: ./etc/mox/config/domains.conf
-        target: /mox/config/domains.conf
-    healthcheck:
-      test: "netstat -nlt | grep ':25 '"
-      interval: "1s"
-      timeout: "1s"
-      retries: 10
+      - maddy_data:/data
 volumes:
   caddy_data:
   caddy_config:
   gotosocial_data:
   vikunja_data:
-  mox_data:
-  mox_config:
+  maddy_data:
 networks:
   fogtype:
     ipam:
