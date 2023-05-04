@@ -9,3 +9,9 @@ noise:
 ip_prefixes:
   - fd7a:115c:a1e0::/48
   - 100.64.0.0/10
+dns_config:
+  override_local_dns: true
+  magic_dns: true
+  base_domain: net.fogtype.com
+  nameservers:
+    - "49.212.205.24"
