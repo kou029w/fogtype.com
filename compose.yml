@@ -81,6 +81,7 @@ services:
     image: headscale/headscale:0.23.0@sha256:a02592e70c12b77b7f3b99c142818f7636a44c97bfa38f678b8c9c3ae5f82895
     restart: unless-stopped
     ports:
+      - "3478:3478/udp"
       - "127.0.0.1:9200:9200"
     volumes:
       - ./etc/headscale:/etc/headscale

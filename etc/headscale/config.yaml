@@ -9,3 +9,10 @@ noise:
 ip_prefixes:
   - fd7a:115c:a1e0::/48
   - 100.64.0.0/10
+derp:
+  server:
+    enabled: true
+    region_id: 999
+    region_code: "headscale"
+    region_name: "Headscale Embedded DERP"
+    stun_listen_addr: "0.0.0.0:3478"
