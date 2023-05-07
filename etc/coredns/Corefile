@@ -1,4 +1,4 @@
-https://. tls://. . {
+https://. tls://. {
 	tls /var/lib/caddy/data/caddy/certificates/acme-v02.api.letsencrypt.org-directory/dns.fogtype.com/dns.fogtype.com.crt /var/lib/caddy/data/caddy/certificates/acme-v02.api.letsencrypt.org-directory/dns.fogtype.com/dns.fogtype.com.key
 	reload
 	prometheus 0.0.0.0:9153

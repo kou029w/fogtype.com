@@ -20,8 +20,6 @@ services:
     restart: unless-stopped
     expose: ["443"]
     ports:
-      - "53:53/udp"
-      - "53:53/tcp"
       - "853:853"
       - "127.0.0.1:9153:9153"
     volumes:
