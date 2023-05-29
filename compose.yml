@@ -62,7 +62,7 @@ services:
     networks:
       - fogtype
   maddy:
-    image: foxcpp/maddy:0.6.3@sha256:616288f54b7a8328135b093c27d46d14fab4f3650753d9ea853262bf4e5f6eef
+    image: foxcpp/maddy:0.7.0@sha256:fdcc500eac9b35e2eab5597921be3407075892831f24c01c009e83591dc3b020
     restart: unless-stopped
     ports:
       - "25:25"
