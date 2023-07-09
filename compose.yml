@@ -44,23 +44,6 @@ services:
     command: "--config-path /etc/gotosocial/config.yaml"
     networks:
       - fogtype
-  vikunja-api:
-    image: vikunja/api:0.21.0@sha256:e541ef5599d08f50a24e8de1fd8136f9d0a7ef514916fac6d6bf8ac6c7c16712
-    restart: unless-stopped
-    environment:
-      VIKUNJA_SERVICE_FRONTENDURL: https://task.fogtype.com/
-      VIKUNJA_SERVICE_ENABLEREGISTRATION: "false"
-      VIKUNJA_DATABASE_TYPE: sqlite
-      VIKUNJA_DATABASE_PATH: files/vikunja.db
-    volumes:
-      - "vikunja_data:/app/vikunja/files"
-    networks:
-      - fogtype
-  vikunja-frontend:
-    image: vikunja/frontend:0.21.0@sha256:fdd4582979beee4a6bef2d4d8e3744809b82ab2e198d708a829d7189a0ad9882
-    restart: unless-stopped
-    networks:
-      - fogtype
   maddy:
     image: foxcpp/maddy:0.7.0@sha256:fdcc500eac9b35e2eab5597921be3407075892831f24c01c009e83591dc3b020
     restart: unless-stopped
@@ -91,7 +74,6 @@ volumes:
   caddy_data:
   caddy_config:
   gotosocial_data:
-  vikunja_data:
   maddy_data:
   headscale_data:
 networks:
