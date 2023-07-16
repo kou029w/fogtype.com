@@ -24,3 +24,6 @@ mta-sts.fogtype.com {
 	}
 	redir / /.well-known/mta-sts.txt
 }
+git.fogtype.com {
+	reverse_proxy http://rho.fogtype.com:3000
+}
