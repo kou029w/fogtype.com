@@ -1,9 +1,3 @@
-keiu.net, www.keiu.net {
-	redir https://fogtype.com{uri} 308
-}
-read.keiu.net {
-	redir https://rad.fogtype.com{uri} 308
-}
 fogtype.com {
 	handle /.well-known/nostr.json {
 		header access-control-allow-origin *
@@ -30,4 +24,3 @@ mta-sts.fogtype.com {
 	}
 	redir / /.well-known/mta-sts.txt
 }
-
