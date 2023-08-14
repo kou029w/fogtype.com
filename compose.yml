@@ -24,10 +24,19 @@ services:
       - "127.0.0.1:9153:9153"
     volumes:
       - ./etc/coredns:/etc/coredns
-      - caddy_data:/var/lib/caddy/data
+      - coredns_data:/var/lib/coredns
     command: "-conf /etc/coredns/Corefile"
     networks:
       - fogtype
+  cron:
+    image: alpine:3.18@sha256:7144f7bab3d4c2648d7e59409f15ec52a18006a128c733fcff20d3a4a54ba44a
+    restart: unless-stopped
+    volumes:
+      - ./etc/periodic:/etc/periodic:ro
+      - caddy_data:/var/lib/caddy/data:ro
+      - coredns_data:/var/lib/coredns
+    init: true
+    command: ["/usr/sbin/crond", "-f", "-L", "/dev/stdout"]
   gts:
     image: superseriousbusiness/gotosocial:0.10.0@sha256:1e901dae99ef5925b4b43108029a408b1ccf88027f295793f531295c74689fd3
     restart: unless-stopped
@@ -73,6 +82,7 @@ services:
 volumes:
   caddy_data:
   caddy_config:
+  coredns_data:
   gotosocial_data:
   maddy_data:
   headscale_data:
