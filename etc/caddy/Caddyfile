@@ -1,6 +1,7 @@
 fogtype.com {
-	handle /.well-known/nostr.json {
-		header access-control-allow-origin *
+	header /.well-known/nostr.json access-control-allow-origin *
+	@exists file
+	handle @exists {
 		file_server
 	}
 	reverse_proxy http://gts:8080
