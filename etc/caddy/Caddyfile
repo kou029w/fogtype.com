@@ -26,6 +26,7 @@ mta-sts.fogtype.com {
 	redir / /.well-known/mta-sts.txt
 }
 openpgpkey.fogtype.com {
+	header access-control-allow-origin *
 	handle /.well-known/openpgpkey/* {
 		file_server
 	}
