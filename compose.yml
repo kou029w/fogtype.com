@@ -1,7 +1,7 @@
 name: keiunet
 services:
   https:
-    image: caddy:2.7.5-alpine@sha256:f1c092da9fcba7a8197cf1065a347d4f0bb67b6dd188985eafaf0a5aec6c9041
+    image: caddy:2.7.5-alpine@sha256:92161de201f3335fdada7a8a0c26280d692309995c1a57dcc2c9a9f290c173b6
     restart: unless-stopped
     ports:
       - "80:80"
