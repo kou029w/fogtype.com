@@ -38,7 +38,7 @@ services:
     init: true
     command: ["/usr/sbin/crond", "-f", "-L", "/dev/stdout"]
   gts:
-    image: superseriousbusiness/gotosocial:0.12.2@sha256:1d0dcbfd7f14e35ae219877bfbdcc8dfcaa41592f0b31f3ef114c0f16f2132f5
+    image: superseriousbusiness/gotosocial:0.13.0@sha256:6b56d8895f782c578a42330eb9a2f4a0bd9929c042fb03bce7c6f5d182ada113
     restart: unless-stopped
     expose: ["8080"]
     environment:
