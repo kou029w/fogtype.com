@@ -6,5 +6,12 @@
     ":skipStatusChecks",
     "docker:enableMajor",
     "docker:pinDigests"
+  ],
+  "packageRules": [
+    {
+      "matchPackagePatterns": ["headscale"],
+      "matchManagers": ["docker-compose"],
+      "enabled": false
+    }
   ]
 }
