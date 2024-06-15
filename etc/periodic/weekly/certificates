@@ -1,7 +1,0 @@
-#!/bin/sh
-set -eu
-install \
-  -D \
-  -m 644 \
-  -t /var/lib/coredns/certificates/acme-v02.api.letsencrypt.org-directory/dns.fogtype.com/ \
-  /var/lib/caddy/data/caddy/certificates/acme-v02.api.letsencrypt.org-directory/dns.fogtype.com/dns.fogtype.com.*

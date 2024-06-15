@@ -9,13 +9,6 @@ fogtype.com {
 www.fogtype.com {
 	redir https://fogtype.com{uri} 308
 }
-dns.fogtype.com {
-	reverse_proxy /dns-query https://dns {
-		transport http {
-			tls_server_name dns.fogtype.com
-		}
-	}
-}
 net.fogtype.com {
 	reverse_proxy headscale:8080
 }

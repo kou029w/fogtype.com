@@ -15,28 +15,6 @@ services:
       - caddy_config:/config
     networks:
       - fogtype
-  dns:
-    image: coredns/coredns:1.11.1@sha256:1eeb4c7316bacb1d4c8ead65571cd92dd21e27359f0d4917f1a5822a73b75db1
-    restart: unless-stopped
-    expose: ["443"]
-    ports:
-      - "853:853"
-      - "127.0.0.1:9153:9153"
-    volumes:
-      - ./etc/coredns:/etc/coredns
-      - coredns_data:/var/lib/coredns
-    command: "-conf /etc/coredns/Corefile"
-    networks:
-      - fogtype
-  cron:
-    image: alpine:3.20@sha256:77726ef6b57ddf65bb551896826ec38bc3e53f75cdde31354fbffb4f25238ebd
-    restart: unless-stopped
-    volumes:
-      - ./etc/periodic:/etc/periodic:ro
-      - caddy_data:/var/lib/caddy/data:ro
-      - coredns_data:/var/lib/coredns
-    init: true
-    command: ["/usr/sbin/crond", "-f", "-L", "/dev/stdout"]
   gts:
     image: superseriousbusiness/gotosocial:0.15.0@sha256:0b5d2a6707d0ecb841644141cd823d73cb3421dd7db78fe0f403dbe2d5fe33f4
     restart: unless-stopped
@@ -82,7 +60,6 @@ services:
 volumes:
   caddy_data:
   caddy_config:
-  coredns_data:
   gotosocial_data:
   maddy_data:
   headscale_data:
