@@ -1,0 +1,32 @@
+#!/bin/sh
+set -eu
+
+REPO=${REPO:-git@github.com:kou029w/fogtype.com.git}
+REMOTE_HOST=${REMOTE_HOST:-fogtype.com}
+PACKAGES="docker-ce docker-compose-plugin tailscale"
+
+sudo apt-get update -qq
+DEBIAN_FRONTEND=noninteractive \
+  sudo apt-get install -y -qq git rsync
+
+git clone "${REPO}" "${HOME}/${REMOTE_HOST}" ||
+  git pull --rebase
+
+cd "${HOME}/${REMOTE_HOST}"
+
+sudo rsync -r etc/apt/keyrings/ /usr/share/keyrings/
+eval "$(apt-config shell APT_CONF_DIR 'Dir::Etc::parts/d')"
+sudo rsync -r etc/apt/apt.conf.d/ "${APT_CONF_DIR}"
+eval "$(apt-config shell APT_SOURCES_DIR 'Dir::Etc::sourceparts/d')"
+sudo rsync -r etc/apt/sources.list.d/ "${APT_SOURCES_DIR}"
+
+sudo rsync -r etc/docker/ /etc/docker/
+
+sudo apt-get update -qq
+# shellcheck disable=SC2086
+DEBIAN_FRONTEND=noninteractive \
+  sudo apt-get install -y -qq ${PACKAGES}
+
+sudo gpasswd -a "$(whoami)" docker
+
+cd -

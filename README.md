@@ -1,23 +1,19 @@
 # Fogtype
 
-## 前提
+## Runner Registration
 
-- Docker Compose
-- systemd
-- systemd-journald
-
-Git リポジトリを取得し、設定ファイルを配置
-
-```bash
-ssh kou029w@fogtype.com
-git clone git@github.com:kou029w/fogtype.com.git
-cd fogtype.com
-sudo install -m 644 {,/}etc/docker/daemon.json
-sudo systemctl restart docker
+```
+$ make install
 ```
 
-## 構築
+secrets.DEPLOY_KEY
+: SSH identity file
 
-```sh
-docker compose up -d
+secrets.KNOWN_HOSTS
+: SSH known_hosts file
+
+## Deploy
+
+```
+$ make deploy
 ```
