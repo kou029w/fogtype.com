@@ -8,7 +8,8 @@ jobs:
   main:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - run: install -m 700 -d ~/.ssh
-      - run: install -m 600 <(echo '${{ secrets.DEPLOY_KEY }}') ~/.ssh/deploy_key
+      - run: install -m 600 <(echo '${{ secrets.DEPLOY_KEY }}') ~/.ssh/id_ed25519
       - run: install -m 600 <(echo '${{ secrets.KNOWN_HOSTS }}') ~/.ssh/known_hosts
       - run: make deploy
