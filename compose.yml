@@ -46,7 +46,7 @@ services:
       - caddy_data:/var/lib/caddy/data:ro
       - maddy_data:/data
   headscale:
-    image: headscale/headscale:0.22.3
+    image: headscale/headscale:0.22.3@sha256:aadf29a875bb2ffdf6579869e5759935f7a64b9fd19fcea9d5385c5d7220dc7b
     restart: unless-stopped
     ports:
       - "3478:3478/udp"
