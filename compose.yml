@@ -56,7 +56,7 @@ services:
       - headscale_data:/var/lib/headscale
     networks:
       - fogtype
-    command: headscale serve
+    command: serve
 volumes:
   caddy_data:
   caddy_config:
