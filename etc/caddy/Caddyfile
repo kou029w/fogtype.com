@@ -10,6 +10,20 @@ www.fogtype.com {
 	redir https://fogtype.com{uri} 308
 }
 net.fogtype.com {
+	@options {
+		method OPTIONS
+	}
+
+	handle @options {
+		header {
+			access-control-allow-origin https://headscale.fogtype.com
+			access-control-allow-methods *
+			access-control-allow-headers *
+		}
+		respond 204
+	}
+
+	header access-control-allow-origin https://headscale.fogtype.com
 	reverse_proxy headscale:8080
 }
 mta-sts.fogtype.com {
