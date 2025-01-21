@@ -10,6 +10,7 @@ noise:
 prefixes:
   v6: fd7a:115c:a1e0::/48
   v4: 100.64.0.0/10
+  allocation: random
 derp:
   server:
     enabled: true
