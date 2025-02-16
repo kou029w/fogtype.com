@@ -1,7 +1,7 @@
 name: fogtype
 services:
   https:
-    image: caddy:2.9.1-alpine@sha256:c77f60a2bebb3916b17f73d892962a407271b198d1ac0f9c332ca7f59ed9f11b
+    image: caddy:2.9.1-alpine@sha256:b6894cfcec924873db96df564b7dabc2dee938c79d4d87c05fec463b18b63aa2
     restart: unless-stopped
     ports:
       - "80:80"
