@@ -16,7 +16,7 @@ services:
     networks:
       - fogtype
   gts:
-    image: superseriousbusiness/gotosocial:0.17.4@sha256:c8e8d722b3ed8546a4af9c81edff1537d8ed7e35cc8d09e07cbf6bd4aa94e4a4
+    image: superseriousbusiness/gotosocial:0.18.0@sha256:b146b321acde71350631a319a810a807b1095a589d8616f150abce3a7e7e3903
     restart: unless-stopped
     expose: ["8080"]
     environment:
