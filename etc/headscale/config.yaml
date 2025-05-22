@@ -19,3 +19,4 @@ derp:
   update_frequency: 24h
 dns:
   magic_dns: false
+  override_local_dns: false
