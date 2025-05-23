@@ -13,24 +13,19 @@ services:
       - ./srv:/srv
       - caddy_data:/data
       - caddy_config:/config
-    networks:
-      - fogtype
   gts:
     image: superseriousbusiness/gotosocial:0.19.1@sha256:765305021db73e4f4101f7de2700032678a2e52a129742f9ddba437ff6ca0abd
     restart: unless-stopped
-    expose: ["8080"]
     environment:
       GTS_HOST: fogtype.com
       GTS_DB_TYPE: sqlite
       GTS_DB_ADDRESS: /gotosocial/storage/sqlite.db
-      GTS_TRUSTED_PROXIES: 172.30.0.0/24
+      GTS_TRUSTED_PROXIES: 172.30.0.0/24,fded:a56c:7a13::/64
     volumes:
       - /usr/share/zoneinfo/Asia/Tokyo:/etc/localtime:ro
       - ./etc/gotosocial:/etc/gotosocial
       - gotosocial_data:/gotosocial/storage
     command: "--config-path /etc/gotosocial/config.yaml"
-    networks:
-      - fogtype
   maddy:
     image: foxcpp/maddy:0.8.1@sha256:55636d8a29588eea62d81d51acdafe38e0f694fb91801ab12dc1ed8c47b6439d
     restart: unless-stopped
@@ -54,8 +49,6 @@ services:
     volumes:
       - ./etc/headscale:/etc/headscale
       - headscale_data:/var/lib/headscale
-    networks:
-      - fogtype
     command: serve
 volumes:
   caddy_data:
@@ -64,8 +57,10 @@ volumes:
   maddy_data:
   headscale_data:
 networks:
-  fogtype:
+  default:
+    enable_ipv6: true
     ipam:
       driver: default
       config:
         - subnet: 172.30.0.0/24
+        - subnet: fded:a56c:7a13::/64
