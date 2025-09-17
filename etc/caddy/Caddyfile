@@ -43,14 +43,7 @@ git.fogtype.com {
 	reverse_proxy http://rho.fogtype.com:3000
 }
 
-153.127.48.145, :443 {
+:443 {
 	respond "ok"
-
-	tls {
-		issuer acme {
-			dir https://acme-staging-v02.api.letsencrypt.org/directory
-			profile shortlived
-			disable_tlsalpn_challenge
-		}
-	}
+	tls /data/caddy/certificates/acme-staging-v02.api.letsencrypt.org-directory/153.127.48.145/153.127.48.145.cert /data/caddy/certificates/acme-staging-v02.api.letsencrypt.org-directory/153.127.48.145/153.127.48.145.key
 }
