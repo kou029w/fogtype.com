@@ -43,7 +43,7 @@ git.fogtype.com {
 	reverse_proxy http://rho.fogtype.com:3000
 }
 
-153.127.48.145, [2401:2500:204:1122:153:127:48:145] {
+153.127.48.145, :443 {
 	respond "ok"
 
 	tls {
