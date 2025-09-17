@@ -42,8 +42,3 @@ openpgpkey.fogtype.com {
 git.fogtype.com {
 	reverse_proxy http://rho.fogtype.com:3000
 }
-
-:443 {
-	respond "ok"
-	tls /data/caddy/certificates/acme-staging-v02.api.letsencrypt.org-directory/153.127.48.145/153.127.48.145.cert /data/caddy/certificates/acme-staging-v02.api.letsencrypt.org-directory/153.127.48.145/153.127.48.145.key
-}
