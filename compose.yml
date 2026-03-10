@@ -32,6 +32,7 @@ services:
     ports:
       - "25:25"
       - "465:465"
+      - "587:587"
       - "993:993"
     environment:
       MADDY_HOSTNAME: fogtype.com
