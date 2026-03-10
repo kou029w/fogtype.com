@@ -40,6 +40,12 @@ services:
       - /etc/maddy:/etc/maddy
       - caddy_data:/var/lib/caddy/data:ro
       - maddy_data:/data
+  cocoon:
+    image: ghcr.io/haileyok/cocoon:0.9.0
+    restart: unless-stopped
+    env_file: etc/cocoon/.env
+    volumes:
+      - cocoon_data:/data
   headscale:
     image: headscale/headscale:v0.28.0@sha256:51b1b9182bb6219e97374fa89af6b9320d6f87ecc739e328d5357ea4fa7a5ce3
     restart: unless-stopped
@@ -55,6 +61,7 @@ volumes:
   caddy_config:
   gotosocial_data:
   maddy_data:
+  cocoon_data:
   headscale_data:
 networks:
   default:

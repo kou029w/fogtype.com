@@ -4,6 +4,7 @@ set -eu
 cd "${HOME}/${REMOTE_HOST:-fogtype.com}"
 
 git pull --rebase
+./cocoon-setup
 docker compose up --detach --remove-orphans
 
 cd -

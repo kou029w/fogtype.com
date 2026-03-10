@@ -1,13 +1,17 @@
 fogtype.com {
 	header /.well-known/nostr.json access-control-allow-origin *
+	reverse_proxy /.well-known/did.json cocoon:8080
 	@exists file
 	handle @exists {
 		file_server
 	}
-	reverse_proxy http://gts:8080
+	reverse_proxy gts:8080
 }
 www.fogtype.com {
 	redir https://fogtype.com{uri} 308
+}
+pds.fogtype.com {
+	reverse_proxy cocoon:8080
 }
 net.fogtype.com {
 	@options {
