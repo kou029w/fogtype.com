@@ -35,12 +35,16 @@ services:
       - "587:587"
       - "993:993"
     environment:
+      MADDY_CONFIG: /etc/maddy/maddy.conf
       MADDY_HOSTNAME: fogtype.com
       MADDY_DOMAIN: fogtype.com
     volumes:
       - /etc/maddy:/etc/maddy
       - caddy_data:/var/lib/caddy/data:ro
       - maddy_data:/data
+    entrypoint:
+      - /bin/maddy
+    command: run
   cocoon:
     image: ghcr.io/haileyok/cocoon:0.9.0@sha256:662a4186794c049a6a6ff8929185e45ab7ce2ce190876d39767c8d67f94a2808
     restart: unless-stopped
