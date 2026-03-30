@@ -14,7 +14,7 @@ services:
       - caddy_data:/data
       - caddy_config:/config
   gts:
-    image: superseriousbusiness/gotosocial:0.21.1@sha256:4cc478b1305db641a44c863d7d43c44787db097432ac5473ccaddf7bf99c8178
+    image: superseriousbusiness/gotosocial:0.21.2@sha256:53106462f352c23c25a32d4bd5c03eb3c2198f2d2549ff1e7d5ef6deb7f44961
     restart: unless-stopped
     environment:
       GTS_HOST: fogtype.com
