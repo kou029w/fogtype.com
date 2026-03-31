@@ -28,8 +28,12 @@ install: .deploy_key .known_hosts
 
 .PHONY: keyrings
 keyrings: \
+	srv/.well-known/openpgpkey/fogtype.com/hu/k5iarqu189w6rpg6immh6a3sdiyse3kp \
 	etc/apt/keyrings/docker-archive-keyring.gpg \
 	etc/apt/keyrings/tailscale-archive-keyring.gpg \
+
+srv/.well-known/openpgpkey/fogtype.com/hu/k5iarqu189w6rpg6immh6a3sdiyse3kp:
+	gpg --export 4818145E783E2A4A04E816A479807D08C6EF6460 > $@
 
 etc/apt/keyrings/docker-archive-keyring.gpg:
 	curl -sSf --tlsv1.3 https://download.docker.com/linux/ubuntu/gpg \
