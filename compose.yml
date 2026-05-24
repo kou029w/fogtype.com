@@ -27,7 +27,7 @@ services:
       - gotosocial_data:/gotosocial/storage
     command: "--config-path /etc/gotosocial/config.yaml"
   maddy:
-    image: foxcpp/maddy:0.9.4@sha256:cf79fddee12228b3c47af5fbbfadceef115d46d4ae434429bef70f1d565a0abf
+    image: foxcpp/maddy:0.9.5@sha256:de42151adff6388edb5e4ee88f60334fa1ab85e309485193ecb1c2db20203315
     restart: unless-stopped
     ports:
       - "25:25"
