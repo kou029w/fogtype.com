@@ -1,0 +1,3 @@
+knot.fogtype.com {
+	reverse_proxy http://rho.fogtype.com:5555
+}

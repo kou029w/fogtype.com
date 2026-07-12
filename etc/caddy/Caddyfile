@@ -43,6 +43,4 @@ openpgpkey.fogtype.com {
 	}
 	redir / /.well-known/openpgpkey/fogtype.com/hu/k5iarqu189w6rpg6immh6a3sdiyse3kp
 }
-git.fogtype.com {
-	reverse_proxy http://rho.fogtype.com:3000
-}
+import sites/*.caddy

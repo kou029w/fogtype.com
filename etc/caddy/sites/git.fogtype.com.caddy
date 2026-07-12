@@ -1,0 +1,3 @@
+git.fogtype.com {
+	reverse_proxy http://rho.fogtype.com:3000
+}
