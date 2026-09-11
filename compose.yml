@@ -46,7 +46,7 @@ services:
       - /bin/maddy
     command: run
   cocoon:
-    image: ghcr.io/haileyok/cocoon:0.11.1@sha256:b5c618abf50b66ba078b35986a38909fbc6ce34a1835306246f4bf03f33232fb
+    image: ghcr.io/haileyok/cocoon:0.11.2@sha256:39d198dee016b8c8b73520fd887afc4f0800758e2510f4827a6ccb77aec45f23
     restart: unless-stopped
     env_file: etc/cocoon/.env
     volumes:
