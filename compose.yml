@@ -16,6 +16,9 @@ services:
   gts:
     image: superseriousbusiness/gotosocial:0.22.1@sha256:0078ca451dda5e8c4a8630784519f99b69f48c3dda79586a9703d4bf8ea14dae
     restart: unless-stopped
+    env_file:
+      - path: etc/gotosocial/.env
+        required: false
     environment:
       GTS_HOST: fogtype.com
       GTS_DB_TYPE: sqlite
@@ -57,10 +60,22 @@ services:
     ports:
       - "3478:3478/udp"
       - "127.0.0.1:9200:9200"
+    env_file:
+      - path: etc/headscale/.env
+        required: false
     volumes:
       - ./etc/headscale:/etc/headscale
       - headscale_data:/var/lib/headscale
     command: serve
+  pocketid:
+    image: ghcr.io/pocket-id/pocket-id:v2.16.0@sha256:9366436f3fd21619ed7e5709fa0acac88130f73414ec8ee1caf768fc487111ea
+    restart: unless-stopped
+    env_file: etc/pocketid/.env
+    environment:
+      APP_URL: https://auth.fogtype.com
+      TRUST_PROXY: "true"
+    volumes:
+      - pocketid_data:/app/data
 volumes:
   caddy_data:
   caddy_config:
@@ -68,6 +83,7 @@ volumes:
   maddy_data:
   cocoon_data:
   headscale_data:
+  pocketid_data:
 networks:
   default:
     enable_ipv6: true

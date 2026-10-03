@@ -1,2 +1,5 @@
 accounts-registration-open: false
 instance-expose-public-timeline: true
+oidc-enabled: true
+oidc-idp-name: Pocket ID
+oidc-issuer: https://auth.fogtype.com

@@ -27,3 +27,7 @@ derp:
 dns:
   magic_dns: false
   override_local_dns: false
+oidc:
+  issuer: https://auth.fogtype.com
+  pkce:
+    enabled: true
