@@ -73,7 +73,7 @@ services:
     env_file: etc/pocketid/.env
     environment:
       APP_URL: https://auth.fogtype.com
-      TRUST_PROXY: "true"
+      TRUST_PROXY: 172.30.0.0/24,fded:a56c:7a13::/64
     volumes:
       - pocketid_data:/app/data
 volumes:
