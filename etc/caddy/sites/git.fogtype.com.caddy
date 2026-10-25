@@ -1,3 +1,5 @@
 git.fogtype.com {
-	reverse_proxy http://rho.fogtype.com:3000
+	reverse_proxy http://rho.fogtype.com:3000 {
+		header_up X-Real-Ip {remote_host}
+	}
 }
