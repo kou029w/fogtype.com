@@ -20,8 +20,6 @@ derp:
     verify_clients: true
     stun_listen_addr: "0.0.0.0:3478"
     private_key_path: /var/lib/headscale/derp_server_private.key
-    ipv4: "153.127.48.145"
-    ipv6: "2401:2500:204:1122:153:127:48:145"
   urls: []
   update_frequency: 24h
 dns:
