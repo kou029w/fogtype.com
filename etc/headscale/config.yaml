@@ -21,6 +21,7 @@ derp:
     stun_listen_addr: "0.0.0.0:3478"
     private_key_path: /var/lib/headscale/derp_server_private.key
   urls: []
+  paths: []
   update_frequency: 24h
 dns:
   magic_dns: false
