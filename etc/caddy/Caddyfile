@@ -1,4 +1,9 @@
+(hsts) {
+	header Strict-Transport-Security "max-age=31536000"
+}
+
 fogtype.com {
+	import hsts
 	header /.well-known/nostr.json access-control-allow-origin *
 	reverse_proxy /.well-known/did.json cocoon:8080
 	@exists file
@@ -8,12 +13,15 @@ fogtype.com {
 	reverse_proxy gts:8080
 }
 www.fogtype.com {
+	import hsts
 	redir https://fogtype.com{uri} 308
 }
 pds.fogtype.com {
+	import hsts
 	reverse_proxy cocoon:8080
 }
 net.fogtype.com {
+	import hsts
 	@options {
 		method OPTIONS
 	}
@@ -31,15 +39,18 @@ net.fogtype.com {
 	reverse_proxy headscale:8080
 }
 auth.fogtype.com {
+	import hsts
 	reverse_proxy pocketid:1411
 }
 mta-sts.fogtype.com {
+	import hsts
 	handle /.well-known/mta-sts.txt {
 		file_server
 	}
 	redir / /.well-known/mta-sts.txt
 }
 openpgpkey.fogtype.com {
+	import hsts
 	header access-control-allow-origin *
 	handle /.well-known/openpgpkey/* {
 		file_server

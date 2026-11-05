@@ -1,3 +1,4 @@
 knot.fogtype.com {
+	import hsts
 	reverse_proxy http://rho.fogtype.com:5555
 }
